@@ -1,0 +1,31 @@
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 480px;
+    height: 480px;
+    justify-content: center; 
+    align-content: center;
+    gap: 0px; 
+}
+
+.grid-item {
+    display: flex;
+    flex: 0 0 calc(100% / var(--grid-size));
+    aspect-ratio: 1 / 1;
+    background-color: black;
+    position: relative;
+    z-index: 10;
+    display: block;
+    visibility: visible;
+    border: 1px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+}
+
+
+.colored {
+    background-color: blue;
+}
+
+.refresh-btn {
+    display: flex;
+}

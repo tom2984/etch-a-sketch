@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button class="refresh-btn" type="button"> Generate </button>
+    <div class="flex-container"></div>
+
+<script> 
+document.addEventListener("DOMContentLoaded", () => {
+    const gridContainer = document.querySelector(".flex-container");
+
+    function generateGrid(number) {
+    gridContainer.innerHTML = ""; 
+
+    let gridSize = Math.ceil(Math.sqrt(number)); 
+    let squareSize = 480 / gridSize; 
+
+    for (let i = 0; i < gridSize * gridSize; i++) { 
+        const gridItem = document.createElement("div");
+        gridItem.classList.add("grid-item");
+
+        gridItem.style.width = `${squareSize}px`;
+        gridItem.style.height = `${squareSize}px`;
+
+        gridItem.addEventListener("mouseenter", (e) => {
+            e.target.classList.add("colored"); 
+        });
+
+        gridItem.addEventListener("mouseleave", (e) => {
+            e.target.classList.remove("colored");
+        });
+
+        gridContainer.appendChild(gridItem);
+    }
+}
+
+    
+    const buttonPress = document.querySelector(".refresh-btn");
+
+    buttonPress.addEventListener("click", function() {
+        let number = prompt("Choose an amount that is less than 100");
+
+        if (number && !isNaN(number) && number < 100) { 
+            console.log("User entered:", number);
+            generateGrid(parseInt(number)); 
+        } else {
+            alert("Error: Please enter a valid number less than 100");
+        }
+    });
+});
+</script>
+</body>
+</html>
